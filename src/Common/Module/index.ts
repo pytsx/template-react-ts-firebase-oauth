@@ -1,0 +1,1 @@
+export { moduleGoogleAuth } from './moduleGoogleAuth'

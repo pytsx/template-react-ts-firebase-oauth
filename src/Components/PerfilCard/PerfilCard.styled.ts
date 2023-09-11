@@ -9,9 +9,9 @@ const flexDirectionCol = `
 
 export const PerfilCardLayoutWrapper = styled(Paper)`
   border-radius: .64rem;
-  min-width: 240px;
+  min-width: 250px;
   width: fit-content;
-  min-height: 320px;
+  height: 320px;
   ${flexDirectionCol}
   justify-content: space-between;
   overflow: hidden;
@@ -32,14 +32,20 @@ export const LoginButtonText = styled(Typography)`
   }
 `
 
-
+// variavel responsável por definir o tamanho do componente avatar
 const avatarSize = 64
+// o margem inferior deve ser metade do tamanho do avatar para garantir 
+// que o avatar fique na metade da linha inferior di box em que se localiza 
 const avatarMarginButton = avatarSize / 2.5
+// fator de incremento para a logo 
+const incrementSizeFactor = 1.6
+// defina o tamanho da logo com base no avatar
+const logoSize = avatarSize * incrementSizeFactor
 
 export const PerfilHeaderWrapper = styled(Box)`
   background: #0066cc;
   width: 100%;
-  height: 25%;
+  height: 80px;
   ${flexDirectionCol}
   justify-content: end;
   margin-bottom: ${avatarMarginButton}px;
@@ -50,11 +56,17 @@ export const PerfilAvatar = styled(Avatar)`
   height: ${avatarSize}px;
   margin-bottom: -${avatarMarginButton}px;
 `
+export const PerfilLogo = styled.img`
+  width: ${logoSize}px;
+  height: ${logoSize}px;
+  opacity: .8;
+`
 
 export const FooterWrapper = styled(Box)`
   ${flexDirectionCol}
+  border-top: 1px solid #2d2d2d;
   justify-content: center;
-  min-height: 25%;
+  min-height: 40px;
   width: 100%;
 `
 
@@ -73,11 +85,18 @@ export const FooterTitle = styled(Typography)`
   }
 `
 
-export const PersilCardContentWrapper = styled(Box)`
+export const PerfilCardContentWrapper = styled(Box)`
   ${flexDirectionCol}
   margin: 0 1.2rem;
   width: 100%;
   height: 60%;
   justify-content: center;
   gap: .32rem;
+`
+
+export const PerfilCardChildrenWrapper = styled(Box)`
+  ${flexDirectionCol}
+  justify-content: center;
+  height: 200px;
+
 `
