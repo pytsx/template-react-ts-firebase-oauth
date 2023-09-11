@@ -1,0 +1,1 @@
+export { IChildren, ITheme } from './global'

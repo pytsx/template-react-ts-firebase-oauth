@@ -1,0 +1,1 @@
+export { default as ExemplePage } from './ExemplePage.container'
