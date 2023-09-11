@@ -75,7 +75,8 @@ export const AuthProvider = ({ children }: IChildren) => {
 
     // Faz uma solicitação à API do Google OAuth para obter informações de perfil,
     // usando o token de acesso fornecido nas credenciais do usuário.
-    fetch(env.VITE_GOOGLE_API_URL + access_token, {
+    // @ts-ignore
+    fetch(import.meta.env.VITE_GOOGLE_API_URL + access_token, {
       headers: {
         Authorization: `Bearer ${access_token}`,
         Accept: 'application/json'

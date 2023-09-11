@@ -1,7 +1,8 @@
 import React from 'react'
 import { PerfilCardDesign, CustomGoogleButton, PerfilFooter, PerfilCardContent } from './PerfilCard.design'
-import { env, useAuth } from '../../Common'
+import { useAuth } from '../../Common'
 import { CircularProgress } from '@mui/material'
+import packagejson from '../../../package.json'
 
 const PerfilCardContainer = () => {
   const { initGoogleAuthentication, perfil, loading } = useAuth()
@@ -16,7 +17,7 @@ const PerfilCardContainer = () => {
             {
               loading ? <CircularProgress /> : <CustomGoogleButton onClick={initGoogleAuthentication} />
             }
-            <PerfilFooter version={env.VITE_APP_VERSION} />
+            <PerfilFooter version={packagejson.version} />
           </>
       }
 
