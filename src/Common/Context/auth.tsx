@@ -75,7 +75,12 @@ export const AuthProvider = ({ children }: IChildren) => {
 
     // Faz uma solicitação à API do Google OAuth para obter informações de perfil,
     // usando o token de acesso fornecido nas credenciais do usuário.
-    fetch(env.VITE_GOOGLE_API_URL + access_token)
+    fetch(env.VITE_GOOGLE_API_URL + access_token, {
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+        Accept: 'application/json'
+      }
+    })
       .then((res) => {
         // Verifica se a resposta HTTP está OK (status 200).
         if (res.ok) {
