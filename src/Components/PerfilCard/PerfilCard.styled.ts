@@ -67,5 +67,6 @@ export const FooterTitle = styled(Typography)`
   & span {
     text-transform: capitalize;
     color: #c9c9c9;
+    margin-right: .08rem;
   }
 `

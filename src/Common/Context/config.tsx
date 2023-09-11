@@ -1,7 +1,7 @@
 import React from "react"
 import { IChildren } from "../Types"
-
-
+import fs from 'fs'
+import file from '../../../package.json'
 // CONTEXTO DE CONFIGURAÇÃO DA APLICAÇÃO
 // contexto responsável por disponibilizar objs contendo configurações globais
 // para a aplicação 
@@ -28,12 +28,16 @@ const ConfigContext = React.createContext<IConfigContext>({
   env: import.meta.env
 })
 
+
 // definição do Provider do contexto de configuração
 // props implementa a interface: IChildren
 export const ConfigProvider = ({ children }: IChildren) => {
   // estado responsável por centralizar, armazenar e atualizar as configurações do projeto
   // @ts-ignore
   const [env, setEnv] = React.useState<envType>(import.meta.env)
+  React.useEffect(() => {
+    document.title = file.name
+  }, [])
 
   return (
     <ConfigContext.Provider value={{ env }}>

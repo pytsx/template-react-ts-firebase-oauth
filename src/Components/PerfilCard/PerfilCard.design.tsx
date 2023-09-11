@@ -2,6 +2,8 @@ import React from 'react'
 import { LoginButton, LoginButtonText, PerfilAvatar, PerfilCardLayoutWrapper, FooterWrapper, PerfilHeaderWrapper, FooterTitle } from './PerfilCard.styled'
 import { FaGoogle } from 'react-icons/fa'
 import { useConfig } from '../../Common'
+import logo from '../../assets/logo_1.png'
+import { useNavigate } from 'react-router-dom'
 
 // definição do componente principais que será exportado
 const PerfilCardtDesign = () => {
@@ -21,8 +23,9 @@ export default PerfilCardtDesign
 //  definição dos componentes auxiliares:
 
 const CustomGoogleButton = () => {
+  const navigate = useNavigate()
   return (
-    <LoginButton >
+    <LoginButton onClick={() => navigate('/exemple')} >
       <FaGoogle />
       <LoginButtonText variant='button'>
         continuar com <span>google</span>
@@ -34,17 +37,16 @@ const CustomGoogleButton = () => {
 const PerfilHeader = () => {
   return (
     <PerfilHeaderWrapper>
-      <PerfilAvatar />
+      <PerfilAvatar src={logo} variant='square' />
     </PerfilHeaderWrapper>
   )
 }
 
 const PerfilFooter = () => {
-  const { env } = useConfig()
   return (
     <FooterWrapper>
       <FooterTitle>
-        <span>pytsx</span> (v0.1.0)
+        <span>pytsx</span> (v0.1.1)
       </FooterTitle>
     </FooterWrapper>
   )

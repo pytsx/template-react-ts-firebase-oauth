@@ -5,4 +5,5 @@ export const ExempleLayoutWrapper = styled(Box)`
   background: green;
   padding: 1rem;
   margin: 1rem;
+  cursor: pointer;
 ` 
