@@ -4,18 +4,19 @@ import ReactDOM from 'react-dom/client'
 import { RouterProvider } from 'react-router-dom'
 import { router } from './router'
 import theme from './theme'
-import { AuthProvider, ConfigProvider } from './Common'
+import { AuthProvider } from './Common'
 import './root.css'
-
+import { GoogleOAuthProvider } from '@react-oauth/google'
+import { env } from './Common'
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <ConfigProvider>
+    <GoogleOAuthProvider clientId={env.VITE_OAUTH_CLIENT_ID as string}>
+      <ThemeProvider theme={theme}>
         <AuthProvider>
           <CssBaseline />
           <RouterProvider router={router} />
         </AuthProvider>
-      </ConfigProvider>
-    </ThemeProvider>
+      </ThemeProvider>
+    </GoogleOAuthProvider>
   </React.StrictMode>,
 )

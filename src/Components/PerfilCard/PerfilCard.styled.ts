@@ -9,7 +9,8 @@ const flexDirectionCol = `
 
 export const PerfilCardLayoutWrapper = styled(Paper)`
   border-radius: .64rem;
-  min-width: 280px;
+  min-width: 240px;
+  width: fit-content;
   min-height: 320px;
   ${flexDirectionCol}
   justify-content: space-between;
@@ -19,6 +20,7 @@ export const PerfilCardLayoutWrapper = styled(Paper)`
 export const LoginButton = styled(Button)`
   display: flex;
   gap: .64rem;
+  margin: 0 1.2rem;
   padding:.4rem  1.28rem;
   
 `
@@ -69,4 +71,13 @@ export const FooterTitle = styled(Typography)`
     color: #c9c9c9;
     margin-right: .08rem;
   }
+`
+
+export const PersilCardContentWrapper = styled(Box)`
+  ${flexDirectionCol}
+  margin: 0 1.2rem;
+  width: 100%;
+  height: 60%;
+  justify-content: center;
+  gap: .32rem;
 `
