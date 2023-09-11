@@ -45,11 +45,10 @@ export const PerfilCardContent = ({ perfil }: { perfil: any }) => {
 
 //  definição dos componentes auxiliares:
 
-export const CustomGoogleButton = () => {
-  const { initGoogleAuthentication } = useAuth()
+export const CustomGoogleButton = ({ onClick }: { onClick: () => void }) => {
 
   const handleClick = () => {
-    initGoogleAuthentication()
+    onClick()
   }
   return (
     <LoginButton onClick={() => handleClick()} >
