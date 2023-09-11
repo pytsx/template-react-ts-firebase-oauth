@@ -10,7 +10,8 @@ import { GoogleOAuthProvider } from '@react-oauth/google'
 import { env } from './Common'
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <GoogleOAuthProvider clientId={env.VITE_OAUTH_CLIENT_ID as string}>
+    {/* @ts-ignore */}
+    <GoogleOAuthProvider clientId={import.meta.env.VITE_OAUTH_CLIENT_ID}>
       <ThemeProvider theme={theme}>
         <AuthProvider>
           <CssBaseline />
