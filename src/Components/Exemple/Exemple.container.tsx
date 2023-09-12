@@ -1,3 +1,5 @@
+// ExempleComponent
+
 import React from 'react'
 import ExempleComponentDesign from './Exemple.design'
 

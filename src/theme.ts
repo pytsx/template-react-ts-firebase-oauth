@@ -4,6 +4,7 @@ let theme = createTheme({
   typography: {
     allVariants: {
       fontFamily: 'Space Grotesk, nato, arial',
+      userSelect: 'none'
     },
     button: {
       letterSpacing: '- 0.02rem',
@@ -21,6 +22,15 @@ let theme = createTheme({
     },
     primary: {
       main: '#0066cc'
+    },
+    error: {
+      main: '#ff3b30'
+    },
+    success: {
+      main: '#4cd964'
+    },
+    warning: {
+      main: '#ffc600'
     }
   },
   components: {

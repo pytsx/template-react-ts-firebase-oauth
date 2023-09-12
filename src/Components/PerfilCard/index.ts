@@ -1,1 +1,0 @@
-export { default as PerfilCard } from './PerfilCard.container'

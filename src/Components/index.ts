@@ -1,1 +1,2 @@
-export { PerfilCard } from './PerfilCard'
+export { MainCard } from './MainCard'
+export { SystemManager } from './SystemManager'

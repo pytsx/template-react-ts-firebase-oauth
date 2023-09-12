@@ -1,13 +1,14 @@
 import { TokenResponse, useGoogleLogin } from "@react-oauth/google"
+import { statusEnum } from "../Types"
 
 // define a interface do module googleAuth 
 interface IModuleGoogleAuth {
   handlePerfilData: (data: any) => void
-  toogleLoader: (option?: boolean) => void
+  handleAuthStatus: (option: statusEnum) => void
 }
 
 // Module Pattern responsável por gerenciar a autenticação do usuário 
-export function moduleGoogleAuth({ handlePerfilData, toogleLoader }: IModuleGoogleAuth) {
+export function moduleGoogleAuth({ handlePerfilData, handleAuthStatus }: IModuleGoogleAuth) {
 
   /**
    * lida com a autenticação do usuário usando credenciais do Google
@@ -15,13 +16,14 @@ export function moduleGoogleAuth({ handlePerfilData, toogleLoader }: IModuleGoog
    * retorna um boolean para indicar o status da autenticação
   **/
   function autenticateWithGoogle(response: TokenResponse) {
-    toogleLoader(true)
+    // garanta que o estado status estaja LOADING
+    handleAuthStatus('LOADING')
 
     fetchGoolePerfil(response.access_token)
       .then((data) => {
         // Define o perfil do usuário com os dados obtidos da resposta da APIGoogle.
         handlePerfilData(data)
-        toogleLoader(false)
+        handleAuthStatus('OK')
       })
       .catch((error) => {
         throw new Error('error ao logar: ' + error.message)
@@ -81,15 +83,9 @@ export function moduleGoogleAuth({ handlePerfilData, toogleLoader }: IModuleGoog
   // Para usar basta chamar a função loginWithGoogle  - distribuída pelo contexto de Autenticação -
   // em qualquer local da aplicação, por exemplo no onClick  de um botão 
   function loginWithGoogle() {
-    toogleLoader(true)
+    handleAuthStatus("LOADING")
     initGoogleAuthentication()
 
-    // encerrar o loading após um determinado tempo para possibilitar
-    // tentar fazer um novo login 
-    const delayToTurnOffLoading = 15000
-    setTimeout(() => {
-      toogleLoader(false)
-    }, delayToTurnOffLoading)
   }
 
   return {
