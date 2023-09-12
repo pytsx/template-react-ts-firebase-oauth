@@ -62,12 +62,17 @@ export const PerfilLogo = styled.img`
   opacity: .8;
 `
 
-export const FooterWrapper = styled(Box)`
+export const FooterButtonWrapper = styled(Button)`
   ${flexDirectionCol}
+  background: #4d4d4d;
+  border-radius: 0;
   border-top: 1px solid #2d2d2d;
   justify-content: center;
   min-height: 40px;
   width: 100%;
+  &:hover {
+    background: #5d5d5d;
+  }
 `
 
 export const FooterTitle = styled(Typography)`

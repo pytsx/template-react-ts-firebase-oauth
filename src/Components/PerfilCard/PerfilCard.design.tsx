@@ -4,12 +4,11 @@ import {
   LoginButtonText,
   PerfilAvatar,
   PerfilCardLayoutWrapper,
-  FooterWrapper,
+  FooterButtonWrapper,
   PerfilHeaderWrapper,
   FooterTitle,
   PerfilCardContentWrapper,
   PerfilLogo,
-  PerfilCardChildrenWrapper
 } from './PerfilCard.styled'
 import { FaGoogle } from 'react-icons/fa'
 import logo from '../../assets/logo.svg'
@@ -95,10 +94,10 @@ const PerfilHeader = ({ avatar_url }: IPerfilProps) => {
 // da versão atual do projeto 
 export const PerfilFooter = ({ author, version }: IPerfilProps) => {
   return (
-    <FooterWrapper>
+    <FooterButtonWrapper>
       <FooterTitle>
         <span>{author}</span> (v{version})
       </FooterTitle>
-    </FooterWrapper>
+    </FooterButtonWrapper>
   )
 }
