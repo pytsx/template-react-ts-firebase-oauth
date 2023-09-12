@@ -28,7 +28,7 @@ const SystemManagerContainer = () => {
           disabled: authStatus == 'OK' ? false : true
         },
         {
-          service: 'stribe',
+          service: 'stripe',
           status: 'ERROR',
           action: () => { },
           disabled: true
