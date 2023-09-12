@@ -47,12 +47,12 @@ export const PerfilAvatar = styled(Avatar)`
 
 export const PerfilInfoWrapper = styled(Box)`
  width: 100%;
- padding: 0 .8rem ;
+ padding: 0 1rem ;
 `
 
 export const PerfilInfoViewer = styled(Typography)`
   font-weight: 400;
-  margin: .32rem 0;
+  margin: .16rem 0;
   height: 50%;
   display: flex;
   flex-direction: column;
