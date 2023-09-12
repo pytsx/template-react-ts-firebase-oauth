@@ -26,9 +26,9 @@ const Service = ({ data }: { data: systemStatusType }) => {
   const theme = useTheme()
   const [hover, setHover] = React.useState(false)
 
-  function toggleHover() {
+  function handleHover(option: boolean) {
     if (data.disabled) return
-    setHover(prev => !prev)
+    setHover(option)
   }
 
   React.useEffect(() => {
@@ -40,8 +40,8 @@ const Service = ({ data }: { data: systemStatusType }) => {
     <ServiceDisplayInfoWrapper
       status={data.status}
       theme={theme}
-      onMouseEnter={() => toggleHover()}
-      onMouseLeave={() => toggleHover()}
+      onMouseEnter={() => handleHover(true)}
+      onMouseLeave={() => handleHover(false)}
       disabled={data.disabled}
     >
       <ServiceTextWrapper>

@@ -47,10 +47,15 @@ export const FirebaseProvider = ({ children }: IChildren) => {
     })
       .catch((error) => {
         setFirebaseStatus('ERROR')
-        throw new Error('erro ao acessar o bando de dados')
+        throw new Error('erro ao acessar o bando de dados -> ' + error.message)
       })
-
   }
+
+  React.useEffect(() => {
+    if (perfil == undefined && firebaseStatus != 'ERROR') {
+      setFirebaseStatus('ERROR')
+    }
+  }, [perfil])
 
   return (
     <FirebaseContext.Provider value={{ getUser, firebaseStatus }}>

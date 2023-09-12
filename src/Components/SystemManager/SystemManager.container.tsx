@@ -4,7 +4,7 @@ import { useAuth, useFirebase } from '../../Common'
 import SystemManagerDesign from './SystemManager.design'
 
 const SystemManagerContainer = () => {
-  const { perfil, loginWithGoogle, authStatus } = useAuth()
+  const { perfil, loginWithGoogle, authStatus, logout } = useAuth()
   const { getUser, firebaseStatus } = useFirebase()
   React.useEffect(() => {
     console.log(authStatus);
@@ -17,9 +17,11 @@ const SystemManagerContainer = () => {
           service: 'OAuth',
           status: authStatus,
           action:
-            authStatus == 'OK' || authStatus == 'LOADING'
-              ? () => { }
-              : loginWithGoogle
+            authStatus == 'OK'
+              ? logout
+              : authStatus == 'ERROR'
+                ? loginWithGoogle
+                : () => { }
         },
         {
           service: 'firebase',

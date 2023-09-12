@@ -13,6 +13,7 @@ interface IAuthContext {
   perfil: perfilType | undefined
   addPerfilProperty: (property: [string, string]) => void
   authStatus: statusEnum
+  logout: () => void
 }
 
 // definição do contexto do contexto de autenticação 
@@ -21,7 +22,8 @@ const AuthContext = React.createContext<IAuthContext>({
   loginWithGoogle: () => { },
   perfil: undefined,
   addPerfilProperty: () => { },
-  authStatus: 'ERROR'
+  authStatus: 'ERROR',
+  logout: () => { }
 })
 
 // definição do Provider do contexto de autenticação
@@ -60,10 +62,13 @@ export const AuthProvider = ({ children }: IChildren) => {
   // dependência: handlePerfilData
   const { loginWithGoogle } = moduleGoogleAuth({ handlePerfilData, handleAuthStatus })
 
-
+  function logout() {
+    setPerfil(undefined)
+    setAuthStatus("ERROR")
+  }
 
   return (
-    <AuthContext.Provider value={{ loginWithGoogle, perfil, addPerfilProperty, authStatus }}>
+    <AuthContext.Provider value={{ loginWithGoogle, perfil, addPerfilProperty, authStatus, logout }}>
       {children}
     </AuthContext.Provider>
   )
