@@ -39,7 +39,7 @@ export function moduleGoogleAuth({ handlePerfilData, handleAuthStatus }: IModule
   const initGoogleAuthentication = useGoogleLogin({
     onSuccess: autenticateWithGoogle,
     onError: (e) => {
-      console.log(e)
+      console.log('erro ao iniciar autenticação com google: ' + e)
     }
   })
 

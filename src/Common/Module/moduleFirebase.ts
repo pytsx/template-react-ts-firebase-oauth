@@ -17,9 +17,16 @@ interface IDeleteData {
 
 export const moduleFirebase = () => {
 
-  function setData({ group, data }: IWriteData) {
-    set(ref(database, `${group}/`), {
-      ...data
+  function writeDBData({ group, data }: IWriteData) {
+
+    set(ref(database, `${group}/` + data.id), {
+      id: data.id,
+      email: data.email,
+      name: data.name,
+      locale: data.locale,
+      verified_email: data.verified_email,
+      followers: '0',
+      posts: '0'
     })
   }
 
@@ -66,6 +73,6 @@ export const moduleFirebase = () => {
 
 
   return {
-    getDataByGroup
+    getDataByGroup, writeDBData
   }
 }

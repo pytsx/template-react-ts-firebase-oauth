@@ -6,10 +6,7 @@ import SystemManagerDesign from './SystemManager.design'
 const SystemManagerContainer = () => {
   const { perfil, loginWithGoogle, authStatus, logout } = useAuth()
   const { getUser, firebaseStatus } = useFirebase()
-  React.useEffect(() => {
-    console.log(authStatus);
 
-  }, [authStatus])
   return (
     <SystemManagerDesign
       systemStatus={[
@@ -26,7 +23,10 @@ const SystemManagerContainer = () => {
         {
           service: 'firebase',
           status: firebaseStatus,
-          action: firebaseStatus == 'OK' ? () => { } : getUser,
+          action:
+            firebaseStatus == 'OK'
+              ? () => { }
+              : getUser,
           disabled: authStatus == 'OK' ? false : true
         },
         {

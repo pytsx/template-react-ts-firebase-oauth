@@ -1,6 +1,6 @@
 // SystemManager
 import React from 'react'
-import { ServiceTextWrapper, ServiceWrapper, SystemManagerLayoutWrapper, ServiceStatusView, ServiceDisplayInfoWrapper, ServiceActionWrapper } from './SystemManager.styled'
+import { ServiceTextWrapper, SystemManagerLayoutWrapper, ServiceStatusView, ServiceDisplayInfoWrapper, ServiceActionWrapper } from './SystemManager.styled'
 import { IconButton, useTheme } from '@mui/material'
 import { MdReplay, MdPlayArrow, MdStop } from 'react-icons/md'
 import { ISystemManagerDesign, systemStatusType } from '../../Common'
@@ -11,7 +11,7 @@ const SystemManagerDesign = ({ systemStatus }: ISystemManagerDesign) => {
     <SystemManagerLayoutWrapper >
       {
         systemStatus.map((data: systemStatusType) => (
-          <Service data={data} />
+          <Service data={data} key={JSON.stringify(data)} />
         ))
       }
     </SystemManagerLayoutWrapper>

@@ -17,12 +17,6 @@ export const SystemManagerLayoutWrapper = styled(Box)`
   flex-direction: column;
 `
 
-export const ServiceWrapper = styled(Box)`
-  display: flex;
-  align-items: center;
-  gap: .4rem;
-`
-
 export const ServiceDisplayInfoWrapper = styled(Box) <IViewStatus>`
   padding: .32rem .8rem;
   margin: .16rem 0rem;
