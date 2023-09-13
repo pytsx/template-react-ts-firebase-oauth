@@ -60,7 +60,7 @@ export const AuthProvider = ({ children }: IChildren) => {
   // intancia o módulo moduleGoogleAuth, 
   // e expõe ao contexto a função loginWithGoogle
   // dependência: handlePerfilData
-  const { loginWithGoogle } = moduleGoogleAuth({ handlePerfilData, handleAuthStatus })
+  const { loginWithGoogle } = moduleGoogleAuth({ handlePerfilData, handleAuthStatus, authStatus })
 
   function logout() {
     setPerfil(undefined)

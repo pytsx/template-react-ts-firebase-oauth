@@ -5,10 +5,11 @@ import { statusEnum } from "../Types"
 interface IModuleGoogleAuth {
   handlePerfilData: (data: any) => void
   handleAuthStatus: (option: statusEnum) => void
+  authStatus: statusEnum
 }
 
 // Module Pattern responsável por gerenciar a autenticação do usuário 
-export function moduleGoogleAuth({ handlePerfilData, handleAuthStatus }: IModuleGoogleAuth) {
+export function moduleGoogleAuth({ handlePerfilData, handleAuthStatus, authStatus }: IModuleGoogleAuth) {
 
   /**
    * lida com a autenticação do usuário usando credenciais do Google
@@ -85,7 +86,6 @@ export function moduleGoogleAuth({ handlePerfilData, handleAuthStatus }: IModule
   function loginWithGoogle() {
     handleAuthStatus("LOADING")
     initGoogleAuthentication()
-
   }
 
   return {
