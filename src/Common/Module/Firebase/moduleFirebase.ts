@@ -1,5 +1,5 @@
-import { DatabaseReference, child, onValue, push, ref, set } from "firebase/database"
-import { database } from "../Service/firebase.config"
+import { child, onValue, push, ref, set } from "firebase/database"
+import { database } from "../../Service/firebase.config"
 
 interface IWriteData {
   group: string

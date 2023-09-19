@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { ExemplePageWrapper } from './ExemplePage.styled'
-import { ExempleComponent } from '../../Components/Exemple'
+import { ExempleComponent } from '../../Components/MainCard/Exemple'
 
 const ExemplePageDesign = () => {
   return (

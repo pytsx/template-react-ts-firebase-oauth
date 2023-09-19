@@ -4,7 +4,7 @@ import { useAuth, useFirebase } from '../../Common'
 import SystemManagerDesign from './SystemManager.design'
 
 const SystemManagerContainer = () => {
-  const { perfil, loginWithGoogle, authStatus, logout } = useAuth()
+  const { loginWithGoogle, authStatus, logoutGoogle } = useAuth()
   const { getUser, firebaseStatus } = useFirebase()
 
   return (
@@ -15,7 +15,7 @@ const SystemManagerContainer = () => {
           status: authStatus,
           action:
             authStatus == 'OK'
-              ? logout
+              ? logoutGoogle
               : loginWithGoogle
         },
         {

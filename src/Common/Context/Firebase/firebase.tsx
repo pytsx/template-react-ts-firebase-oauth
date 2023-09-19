@@ -1,7 +1,7 @@
 import React from "react"
-import { IChildren, statusEnum } from "../Types"
-import { moduleFirebase } from "../Module"
-import { useAuth } from "./auth"
+import { IChildren, statusEnum } from "../../Types"
+import { moduleFirebase } from "../../Module"
+import { useAuth } from "../Auth/auth"
 
 // CONTEXTO DE Firebase
 // Responsável por lidar com a implementação de alguma funcionalidades do módulo firebase, como consultar o realtime database de dados específicos para aplicação 

@@ -1,2 +1,2 @@
-export { AuthProvider, useAuth } from './auth'
-export { FirebaseProvider, useFirebase } from './firebase'
+export { AuthProvider, useAuth } from './Auth/auth'
+export { FirebaseProvider, useFirebase } from './Firebase/firebase'
