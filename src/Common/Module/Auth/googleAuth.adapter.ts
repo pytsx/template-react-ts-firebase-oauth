@@ -12,8 +12,6 @@ export function googleAuthAdapter({ handlePerfilData, handleAuthStatus }: IModul
   **/
   function autenticateWithGoogle(response: TokenResponse) {
     // garanta que o estado status estaja LOADING
-    console.log(response);
-    
     handleAuthStatus('LOADING')
 
     fetchGooglePerfilAdapter(response.access_token)
