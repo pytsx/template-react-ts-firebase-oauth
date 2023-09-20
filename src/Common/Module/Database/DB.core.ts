@@ -9,13 +9,6 @@ export const moduleFirebase = () => {
   const { getDataByGroup} = dbReadDataAdapter()
   const {updateData } = dbUpdateAdapter()
 
-  
-
-
-
-
-
-
   return {
     getDataByGroup, 
     writeData, 
