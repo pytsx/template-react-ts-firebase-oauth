@@ -24,9 +24,8 @@ const FirebaseContext = React.createContext<IFirebaseContext>({
 export const FirebaseProvider = ({ children }: IChildren) => {
 
   const { perfil, addPerfilProperty, authStatus } = useAuth()
-  const { getDataByGroup, writeDBData } = moduleFirebase()
+  const { getDataByGroup, writeData, deleteData, updateData } = moduleFirebase()
   const [firebaseStatus, setFirebaseStatus] = React.useState<statusEnum>('ERROR')
-
 
   let counterGetUserIteration = 0
   // getUser() é a função responsável por consultar a presença do usuário dentro do bando de dados 
@@ -64,7 +63,7 @@ export const FirebaseProvider = ({ children }: IChildren) => {
         // evitar recursividade infinita permitindo 1 interação 
         if (counterGetUserIteration < 1) {
           // registrar um novo usuário 
-          writeDBData({
+          writeData({
             group: 'users', data: {
               id: perfil.id,
               email: perfil.email,

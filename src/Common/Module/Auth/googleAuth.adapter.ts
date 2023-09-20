@@ -1,6 +1,8 @@
 import { TokenResponse, useGoogleLogin } from "@react-oauth/google"
 import { IModuleGoogleAuth } from "./googleAuth.interface"
 import { fetchGooglePerfilAdapter } from "./fetchPerfil.adapter"
+import Crypto from "crypto-js"
+import { date } from "../../Config/date.singleton"
 
 export function googleAuthAdapter({ handlePerfilData, handleAuthStatus }: IModuleGoogleAuth) {
   /**
@@ -15,7 +17,21 @@ export function googleAuthAdapter({ handlePerfilData, handleAuthStatus }: IModul
     fetchGooglePerfilAdapter(response.access_token)
       .then((data) => {
         // Define o perfil do usuário com os dados obtidos da resposta da APIGoogle.
-        handlePerfilData(data)
+        //criptografar as informações confidenciais 
+        //@ts-ignore
+        const encryptedResponse = Crypto.AES.encrypt(JSON.stringify(response), import.meta.env.VITE_CRYPTO_KEY).toString()
+        
+        // instanciar o singletom date para usar a função incrementDays para definir o período em dias que o token será válido
+        const {  incrementDays } = date
+        // @ts-ignore
+        const expireTokenIn = parseInt(import.meta.env.VITE_EXPIRE_TOKEN_IN)
+        const expireAt = JSON.stringify(incrementDays(expireTokenIn))
+        
+        handlePerfilData({
+          ...data,
+          tokenResponse: JSON.stringify(encryptedResponse), 
+          expireAt
+        })
         handleAuthStatus('OK')
       })
       .catch((error) => {
@@ -37,7 +53,8 @@ export function googleAuthAdapter({ handlePerfilData, handleAuthStatus }: IModul
   })
 
   return {
-    initGoogleAuthentication
+    initGoogleAuthentication,
+    autenticateWithGoogle
   }
 
 }

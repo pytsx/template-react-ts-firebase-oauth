@@ -16,7 +16,9 @@ const SystemManagerContainer = () => {
           action:
             authStatus == 'OK'
               ? logoutGoogle
-              : loginWithGoogle
+              : authStatus == 'LOADING' 
+              ? logoutGoogle
+              :loginWithGoogle
         },
         {
           service: 'firebase',

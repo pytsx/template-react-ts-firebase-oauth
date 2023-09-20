@@ -20,7 +20,6 @@ export async function fetchGooglePerfilAdapter(access_token: string): Promise<an
       // Verifica se a resposta HTTP está OK (status 200).
       if (res.ok) {
         // Converte os dados da resposta em formato JSON e retorna o valor para ser acessado fora do escopo da função.
-
         return res.json()
       } else {
         // Lança uma exceção em caso de erro na resposta HTTP, com uma mensagem de erro.
