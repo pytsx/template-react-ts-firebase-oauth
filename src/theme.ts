@@ -7,7 +7,7 @@ let theme = createTheme({
       userSelect: 'none'
     },
     button: {
-      letterSpacing: '- 0.02rem',
+      letterSpacing: '-0.02rem',
       fontSize: '.9rem',
 
     },
@@ -47,7 +47,17 @@ let theme = createTheme({
       defaultProps: {
         size: 'small'
       }
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          border: '2px solid #30363d',
+        }
+      },
+      defaultProps: {
+      }
     }
+
   }
 
 })
