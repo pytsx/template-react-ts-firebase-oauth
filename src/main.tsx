@@ -7,6 +7,7 @@ import theme from './theme'
 import { AuthProvider, FirebaseProvider } from './Common'
 import './root.css'
 import { GoogleOAuthProvider } from '@react-oauth/google'
+import { Analytics } from '@vercel/analytics/react'
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     {/* @ts-ignore */}
@@ -18,7 +19,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 
             <CssBaseline />
             <RouterProvider router={router} />
-
+            <Analytics />
           </FirebaseProvider>
         </AuthProvider>
 
